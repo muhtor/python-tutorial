@@ -10,7 +10,7 @@ def open_file_with_mode(file, mode: str = 'r'):
     elif mode == 'a':   # "a" - Append - Opens a file for appending, creates the file if it does not exist
         f = open(file, mode)
         f.write("Now the file has more content!")
-        return f
+        return f.read()
     elif mode == 'w':   # "w" - Write - Opens a file for writing, creates the file if it does not exist
         f = open(file, mode)
         f.write("Woops! I have deleted the content!")
@@ -31,3 +31,11 @@ def deleting_file(file: str = ''):
         print("File deletion completed successfully")
     else:
         print("The file does not exist")
+
+
+def deleting_folder(folder: str = ''):
+    if os.path.exists(folder):
+        os.rmdir(folder)
+        print("Folder deletion completed successfully")
+    else:
+        print("The Folder does not exist")
