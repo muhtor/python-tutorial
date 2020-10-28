@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'apps.asynch',
     'apps.dict_methods',
     'apps.file_methods',
     'apps.list_methods',
