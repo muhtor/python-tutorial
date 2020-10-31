@@ -29,7 +29,32 @@ class Student:
         return cls().print_name()
 
     def print_name(self):
-        return print("My name is ...", self.name)
+        name = f"My name is ...{self.name}"
+        # return print("print_name:...", name, type(name))
+
+
+class Person:
+    def __init__(self, *args, **kwargs):
+        # print("**kwargs... ", kwargs, type(kwargs))
+        self.name = kwargs.get('name', '')
+        self.age = kwargs.get('age', '')
+
+    def create_person(self):
+        person = f"Person name: {self.name} / Person age: {self.age}"
+        return print("create_person:...", person, type(person))
+
+
+class George(Person):
+
+    def get_person(self):
+        super().__init__(name='muhtor', age=25)
+        self.create_person()
+
+
+George().get_person()
+
+# print("Human...", George().create_person(), type(George().create_person()))
+# print("Human...", hm, type(hm))
 
 
 if __name__ == '__main__':

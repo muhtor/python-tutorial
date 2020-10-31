@@ -79,12 +79,12 @@ def calculate_time():
         # difference = (t_4 - t_3)
         # difference_time = difference.seconds + difference.seconds // 3600
         current_time = datetime.strptime(datetime.now().strftime('%H:%M:%S'), '%H:%M:%S')
-        print("current_time...", current_time.time(), type(current_time.time()))
-        print("end_time...", end_time.time(), type(end_time.time()))
+        # print("current_time...", current_time.time(), type(current_time.time()))
+        # print("end_time...", end_time.time(), type(end_time.time()))
         if current_time.time() > end_time.time():
-            print("Need to be updated .......")
+            # print("Need to be updated .......")
             write_json()
             return True
         else:
-            print("No need to update......")
+            # print("No need to update......")
             return False
