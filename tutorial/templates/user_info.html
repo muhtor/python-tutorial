@@ -1,0 +1,54 @@
+{% load static %}
+{% block content %}
+    <style></style>
+    <div class="container">
+        <div class="row">
+            <div class="col align-self-center">
+                <h3 class="form-header wrapper">Пожалуйста заполните персональные данные</h3>
+                <form method="POST" action="{% url 'wellmax:profile' %}">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="full_name">Ф.И.О. <span>*</span></label>
+                        {{ form.full_name }}
+                    </div>
+                    <div class="form-group">
+                        <div class="form-group pl-0">
+                            <label for="sex">Пол (М/Ж) <span>*</span></label>
+                            <div class="row justify-content-center">
+                                {% for item in form.gender %}
+                                    <div class="col-3">
+                                        <div class="custom-control custom-radio custom-control-inline">
+                                            {{ item.tag }}
+                                            <label class="custom-control-label"
+                                                   for="{{ item.id_for_label }}">{{ item.choice_label }}</label>
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group ">
+                        <label for="room">Номер комнаты <span>*</span></label>
+                        {{ form.room }}
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Номер телефона <span>*</span></label>
+                        {{ form.phone }}
+                    </div>
+                    <button type="submit" class="btn btn-submit">Далее</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    {% if messages %}
+        <div class="messages">
+            {% for message in messages %}
+                {{ message }}
+            {% endfor %}
+        </div>
+    {% endif %}
+    <script>
+        document.getElementById("body").classList.add("user-info");
+    </script>
+{% endblock %}

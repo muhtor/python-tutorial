@@ -1,0 +1,41 @@
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col align-self-center">
+
+                <form method="POST">
+                    {% csrf_token %}
+                    <h4 class="form-header">Уважаемый гость, оцените качество обслуживания</h4>
+                    <label class="my-1 mr-2 mb-2" for="inlineFormCustomSelectPref">
+                        Обслуживание в ресторане и разнообразие блюд <span>*</span>
+                    </label>
+                    {{ form.service1_rank }}
+                    <br>
+                    <label class="my-1 mr-2 mb-2" for="inlineFormCustomSelectPref">
+                        Обслуживание в ресторане и разнообразие блюд <span>*</span>
+                    </label>
+                    {{ form.service2_rank }}
+                    <br>
+                    <label class="my-1 mr-2 mb-2" for="inlineFormCustomSelectPref">
+                        Чистота и оборудование номера <span>*</span>
+                    </label>{{ form.service3_rank }}<br>
+                    <label class="my-1 mr-2 mb-2" for="inlineFormCustomSelectPref">
+                        Летний бар и бассейн <span>*</span>
+                    </label>{{ form.service4_rank }}<br>
+                    <div class="form-group mt-4">
+                        <label for="textarea">
+                            Есть ли у Вас дополнительные пожелания и комментарии о
+                            «Wellmore Resort Hotel-Charvak», укажите их пожалуйста. Они помогут нам стать лучше!
+                        </label>
+                        {{ form.feedback }}
+                    </div>
+                    <button type="submit" class="btn btn-submit">Отправить</button>
+                </form>
+            </div>
+        </div>
+    </div>
+<script>
+    document.getElementById("body").classList.add("user-evaluation");
+    {#$('body').addClass('user-evaluation')#}
+</script>
+{% endblock %}

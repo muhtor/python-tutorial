@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700" rel="stylesheet" type="text/css">
+    <title>Separator</title>
+    <style>
+        * {
+            font-family: Ubuntu, Helvetica, Arial, sans-serif;
+        }
+        .container {
+            margin: 50px auto;
+            width: 80%;
+            height: auto;
+            border: 1px solid silver;
+            border-radius: 10px;
+        }
+
+        .box {
+            margin: 80px auto;
+            width: 85%;
+            height: auto;
+            padding-bottom: 5px;
+            background: rgba(239, 239, 239, 0.51);
+            align-items: center;
+            border-radius: 8px;
+        }
+
+        .card {
+            margin: 0 auto;
+            padding-top: 10px;
+            width: 50%;
+        }
+
+        .card input {
+            font-size: 20px;
+            border-radius: 5px;
+            border: 1px solid lightgray;
+            outline-color: lightblue;
+            padding: 6px;
+        }
+
+        .card button {
+            font-size: 20px;
+            padding: 3px;
+            cursor: pointer;
+        }
+        .data p{
+            font-size: 20px;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="box">
+        <div class="card">
+            <div class="letters_count">
+                <p>Vowel count: {{count_v}}</p>
+                <p>Consonant count: {{count_c}}</p>
+            </div>
+            <form action="{% url 'separator' %}" method="get">
+                <input type="text" name="str" placeholder="Enter string">
+                <button type="submit">Click</button>
+            </form>
+            <div class="data">
+                <p><span style="color: #888888">vowel: </span>{{vowel}}</p>
+                <p><span style="color: #888888">consonant: </span>{{consonant}}</p>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

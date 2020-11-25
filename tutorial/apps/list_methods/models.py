@@ -12,7 +12,7 @@ from .utils import start_game
 players = ["John", "Deo", "Genre", "David", "Raina"]
 scores = [100, 15, 17, 28, 43]
 game = {"players": players, "scores": scores}
-start_game(game)
+# start_game(game)
 
 
 
