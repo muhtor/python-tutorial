@@ -1,4 +1,5 @@
 from django.db import models
+from django.db.models import Sum
 
 # Create your models here.
 
@@ -23,3 +24,19 @@ class Person(models.Model):
 
     def __str__(self):
         return f"{self.first_name}"
+
+
+
+class Order(models.Model):
+    subtotal = models.DecimalField(max_digits=18, decimal_places=3, blank=True, null=True)
+    total = models.DecimalField(max_digits=18, decimal_places=3, blank=True, null=True)
+
+    def __str__(self):
+        return f"ID: {self.pk}"
+
+    def calc(self):
+        total = Order.objects.all().aggregate(total=Sum('total'))['total']
+        # total = Order.objects.aggregate(Sum('total'))
+        print("T....", total, type(total))
+
+        return total

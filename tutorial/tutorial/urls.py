@@ -22,4 +22,7 @@ urlpatterns = [
     path('well/', include('apps.wellmax.urls')),
     path('payment/', include('apps.payment.urls')),
     path('google/', include('apps.google_trans.urls')),
+    path('form/', include('apps.form.urls')),
+    path('tree/', include('apps.trees.urls')),
+    path('book/', include('apps.author.urls')),
 ]

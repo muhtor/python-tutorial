@@ -4,3 +4,11 @@ from . import models
 
 admin.site.register(models.Post)
 admin.site.register(models.Person)
+
+
+class OrderAdmin(admin.ModelAdmin):
+
+    list_display = ('id', 'subtotal', 'total', 'calc')
+
+
+admin.site.register(models.Order, OrderAdmin)

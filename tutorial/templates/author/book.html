@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Book</title>
+    <style>
+        .container{
+            display: flex;
+            justify-content: center;
+        }
+        .box{
+            margin: 150px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="box">
+        <form method="post">
+            {{ formset.management_form }}
+            {% for form in formset %}
+                {{ form }}
+            {% endfor %}
+        </form>
+    </div>
+</div>
+</body>
+</html>

@@ -58,6 +58,7 @@ class UserAdmin(BaseUserAdmin):
     list_filter = ('is_superuser', 'is_active', 'is_staff',)
     fieldsets = (
         (None, {'fields': ('email', 'password',)}),
+        # ('Permissions', {'fields': ('is_active', 'is_staff', 'is_superuser')}),
         ('Permissions', {'fields': ('is_active', 'is_staff', 'is_superuser')}),
     )
     add_fieldsets = (
@@ -69,5 +70,6 @@ class UserAdmin(BaseUserAdmin):
     search_fields = ('email',)
     ordering = ('email',)
     filter_horizontal = ()
+
 
 admin.site.register(User, UserAdmin)

@@ -43,22 +43,26 @@ INSTALLED_APPS = [
     'paycomuz',
 
     'apps.accounts',
+    'apps.analytics',
     'apps.asynch',
-    'apps.dashboard',
+    'apps.author',
     'apps.db_architecture',
     'apps.dict_methods',
     'apps.file_methods',
+    'apps.form',
     'apps.google_trans',
     'apps.list_methods',
     'apps.oop',
     'apps.operators',
     'apps.payment',
+    'apps.permission',
     'apps.rest_api',
     'apps.services',
     'apps.set_methods',
     'apps.str_methods',
     'apps.tuple_methods',
     'apps.wellmax',
+    'apps.trees',
 ]
 
 MIDDLEWARE = [

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add</title>
+    <style>
+        .container {
+            display: flex;
+            justify-content: center;
+        }
+
+        .block {
+            margin: 200px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="block">
+        <form id="form-container" method="POST">
+            {% csrf_token %}
+            <input type="hidden" name="form-TOTAL_FORMS" value="1" id="id_form-TOTAL_FORMS">
+            <div>
+                <fieldset class="module aligned">
+                    <h3>Select Region</h3>
+                    {{ region_department.as_p }}
+                </fieldset>
+                <fieldset class="module aligned">
+                    <h3>Tree Plan Report</h3>
+                    <div class="tree_plan_box">
+                        {{ tree_report.as_p }}
+                        <div>
+                            <a class="add-box" href=""><img src="/static/admin/img/icon-addlink.svg" alt="Add"></a>
+                            <a class="delete-box"><img src="/static/admin/img/icon-deletelink.svg" alt="Delete"></a>
+                        </div>
+                        <hr>
+                    </div>
+                </fieldset>
+                <div class="submit-row">
+                    <input type="submit" value="Save" class="default" name="_save">
+                    <button id="add-form" type="button">Add</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<script>
+    let birdForm = document.querySelectorAll(".tree_plan_box")
+    let container = document.querySelector("#form-container")
+    let addButton = document.querySelector("#add-form")
+    let totalForms = document.querySelector("#id_form-TOTAL_FORMS")
+    let formNum = birdForm.length - 1
+
+    addButton.addEventListener('click', addForm)
+
+    function addForm(e) {
+        e.preventDefault()
+        let newForm = birdForm[0].cloneNode(true)
+        console.log(newForm)
+        let formRegex = RegExp(`form-(\\d){1}-`, 'g')
+        console.log(formRegex)
+        formNum++
+        newForm.innerHTML = newForm.innerHTML.replace(formRegex, `form-${formNum}-`)
+        console.log(newForm.innerHTML = newForm.innerHTML.replace(formRegex, `form-${formNum}-`))
+        {#container.insertBefore(newForm, addButton.nextSibling)#}
+        totalForms.setAttribute('value', `${formNum + 1}`)
+    }
+</script>
+</body>
+</html>
